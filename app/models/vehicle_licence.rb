@@ -3,5 +3,6 @@ class VehicleLicence < ActiveRecord::Base
 
   validates :digit_code, presence: true, length: { is: 2 }, numericality: { only_integer: true }
   validates :letter_code, presence: true, length: { is: 2 }
+  validates :number, presence: true, length: { is: 6 }, numericality: { only_integer: true }
   validates :release_date, presence: true
 end
