@@ -9,6 +9,6 @@ class CreateVehicleLicences < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :number_plates, :bus_id, unique: true
+    add_index :vehicle_licences, :bus_id, unique: true
   end
 end
