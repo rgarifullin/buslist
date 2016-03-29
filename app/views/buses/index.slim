@@ -1,0 +1,21 @@
+table
+  thead
+    tr
+      th #
+      th = t('bus.name')
+      th = t('number_plate.number_plate')
+      th = t('vehicle_licence.vehicle_licence')
+      th = t('vehicle_licence.release_date')
+      th
+        = link_to t('common.new'), new_bus_path
+  tbody
+    - @buses.each do |bus|
+      tr
+        td = bus.id
+        td = bus.name
+        td = bus.number_plate
+        td = bus.vehicle_licence
+        td = bus.vehicle_licence.release_date
+        td
+          = link_to t('common.edit'), edit_bus_path(bus)
+          = link_to t('common.delete'), bus_path(bus), method: 'delete'

@@ -1,0 +1,19 @@
+= form_for @bus do |f|
+  = f.label :name
+  = f.text_field :name
+
+  = f.label t('number_plate.number_plate')
+  = f.fields_for :number_plate do |number|
+    = number.text_field :series
+    = number.text_field :number
+    = number.text_field :region
+
+  = f.label t('vehicle_licence.vehicle_licence')
+  = f.fields_for :vehicle_licence do |licence|
+    = licence.text_field :digit_code
+    = licence.text_field :letter_code
+    = licence.text_field :number
+    = licence.text_field :release_date
+
+  = f.submit t('common.save')
+  = link_to t('common.back'), buses_path
