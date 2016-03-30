@@ -20,6 +20,7 @@ class BusesController < ApplicationController
   end
 
   def edit
+    @bus = Bus.find(params[:id])
   end
 
   private
