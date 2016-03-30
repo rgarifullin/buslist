@@ -13,9 +13,9 @@ table.table.table-bordered.table-hover.bustable
       tr
         td = bus.id
         td = bus.name
-        td = bus.number_plate
-        td = bus.vehicle_licence
-        td = bus.vehicle_licence.release_date
+        td = bus.number_plate.display
+        td = bus.vehicle_licence.display
+        td = bus.vehicle_licence.release_date.strftime("%d.%m.%Y")
         td
           = link_to t('common.edit'), edit_bus_path(bus), class: 'btn btn-success'
           = link_to t('common.delete'), bus_path(bus), method: 'delete', class: 'btn btn-danger'
