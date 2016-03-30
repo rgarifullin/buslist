@@ -1,4 +1,4 @@
-table
+table.table.table-bordered.table-hover.bustable
   thead
     tr
       th #
@@ -7,7 +7,7 @@ table
       th = t('vehicle_licence.vehicle_licence')
       th = t('vehicle_licence.release_date')
       th
-        = link_to t('common.new'), new_bus_path
+        = link_to t('common.new'), new_bus_path, class: 'btn btn-primary'
   tbody
     - @buses.each do |bus|
       tr
@@ -17,5 +17,5 @@ table
         td = bus.vehicle_licence
         td = bus.vehicle_licence.release_date
         td
-          = link_to t('common.edit'), edit_bus_path(bus)
-          = link_to t('common.delete'), bus_path(bus), method: 'delete'
+          = link_to t('common.edit'), edit_bus_path(bus), class: 'btn btn-success'
+          = link_to t('common.delete'), bus_path(bus), method: 'delete', class: 'btn btn-danger'

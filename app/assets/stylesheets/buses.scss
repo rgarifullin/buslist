@@ -1,3 +1,25 @@
 // Place all the styles related to the buses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bustable {
+  max-width: 900px;
+  margin: 0 auto;
+
+  th, td {
+    text-align: center;
+  }
+
+  thead {
+    background-color: #ababab;
+  }
+}
+
+.bus-form {
+  max-width: 900px;
+  margin: 0 auto;
+
+  input {
+    max-width: 200px;
+  }
+}

@@ -1,19 +1,26 @@
-= form_for @bus do |f|
-  = f.label :name
-  = f.text_field :name
+h2
+= form_for @bus, html: { class: 'bus-form' } do |f|
+  .form-group
+    = f.label t('bus.name')
+    = f.text_field :name, class: 'form-control', placeholder: 'Higer'
 
-  = f.label t('number_plate.number_plate')
-  = f.fields_for :number_plate do |number|
-    = number.text_field :series
-    = number.text_field :number
-    = number.text_field :region
+  .form-group
+    = f.label t('number_plate.number_plate')
+    = f.fields_for :number_plate do |number|
+      = number.text_field :series, class: 'form-control', placeholder: 'ААА'
+      = number.text_field :number, class: 'form-control', placeholder: '123'
+      = number.text_field :region, class: 'form-control', placeholder: '116'
 
-  = f.label t('vehicle_licence.vehicle_licence')
-  = f.fields_for :vehicle_licence do |licence|
-    = licence.text_field :digit_code
-    = licence.text_field :letter_code
-    = licence.text_field :number
-    = licence.text_field :release_date
+  .form-group
+    = f.label t('vehicle_licence.vehicle_licence')
+    = f.fields_for :vehicle_licence do |licence|
+      = licence.text_field :digit_code, class: 'form-control', placeholder: '77'
+      = licence.text_field :letter_code, class: 'form-control', placeholder: 'ТО'
+      = licence.text_field :number, class: 'form-control', placeholder: '123456'
 
-  = f.submit t('common.save')
-  = link_to t('common.back'), buses_path
+      .form-group
+        = label_tag t('vehicle_licence.release_date')
+        = licence.text_field :release_date, class: 'form-control', placeholder: '2016-01-01'
+
+  = f.submit t('common.save'), class: 'btn btn-success'
+  = link_to t('common.back'), buses_path, class: 'btn btn-default'
