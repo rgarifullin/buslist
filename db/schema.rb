@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329201156) do
+ActiveRecord::Schema.define(version: 20160331135617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160329201156) do
   end
 
   add_index "number_plates", ["bus_id"], name: "index_number_plates_on_bus_id", unique: true, using: :btree
+  add_index "number_plates", ["series", "number", "region"], name: "index_number_plates_on_series_and_number_and_region", unique: true, using: :btree
 
   create_table "vehicle_licences", force: :cascade do |t|
     t.integer  "bus_id"
@@ -44,5 +45,6 @@ ActiveRecord::Schema.define(version: 20160329201156) do
   end
 
   add_index "vehicle_licences", ["bus_id"], name: "index_vehicle_licences_on_bus_id", unique: true, using: :btree
+  add_index "vehicle_licences", ["digit_code", "letter_code", "number"], name: "index_vehicle_licences_on_digit_code_and_letter_code_and_number", unique: true, using: :btree
 
 end
