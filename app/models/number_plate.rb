@@ -6,6 +6,6 @@ class NumberPlate < ActiveRecord::Base
   validates :region, presence: true, length: { in: 2..3 }
 
   def display
-    "#{series.first}#{number}#{series[1..-1]} #{region}"
+    "#{series.first.mb_chars.upcase}#{number}#{series[1..-1].mb_chars.upcase} #{region}"
   end
 end

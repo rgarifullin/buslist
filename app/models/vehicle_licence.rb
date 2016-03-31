@@ -7,6 +7,6 @@ class VehicleLicence < ActiveRecord::Base
   validates :release_date, presence: true
 
   def display
-    "#{digit_code} #{letter_code} #{number}"
+    "#{digit_code} #{letter_code.mb_chars.upcase} #{number}"
   end
 end
