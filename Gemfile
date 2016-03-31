@@ -47,3 +47,5 @@ end
 
 gem 'slim-rails'
 gem 'bootstrap-sass'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'mini_magick'

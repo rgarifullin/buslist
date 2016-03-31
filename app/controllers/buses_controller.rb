@@ -26,6 +26,7 @@ class BusesController < ApplicationController
   private
 
   def bus_params
-    params.require(:bus).permit(:name, number_plate_attributes: [:series, :number, :region], vehicle_licence_attributes: [:digit_code, :letter_code, :number, :release_date])
+    params.require(:bus).permit(:name, { photos: [] }, number_plate_attributes: [:series, :number, :region],
+                                vehicle_licence_attributes: [:digit_code, :letter_code, :number, :release_date])
   end
 end

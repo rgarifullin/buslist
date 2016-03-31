@@ -21,5 +21,10 @@
         = label_tag t('vehicle_licence.release_date')
         = licence.text_field :release_date, class: 'form-control', placeholder: '2016-01-01'
 
+  .form-group
+    - bus.photos.each do |photo|
+      = image_tag photo.thumb
+    = f.file_field :photos, multiple: true
+
   = f.submit t('common.save'), class: 'btn btn-success'
   = link_to t('common.back'), buses_path, class: 'btn btn-default'

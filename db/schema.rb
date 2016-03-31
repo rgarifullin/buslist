@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331135617) do
+ActiveRecord::Schema.define(version: 20160331193215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160331135617) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json     "photos"
   end
 
   create_table "number_plates", force: :cascade do |t|
@@ -33,6 +34,13 @@ ActiveRecord::Schema.define(version: 20160331135617) do
 
   add_index "number_plates", ["bus_id"], name: "index_number_plates_on_bus_id", unique: true, using: :btree
   add_index "number_plates", ["series", "number", "region"], name: "index_number_plates_on_series_and_number_and_region", unique: true, using: :btree
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "bus_id"
+    t.json     "images"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "vehicle_licences", force: :cascade do |t|
     t.integer  "bus_id"
