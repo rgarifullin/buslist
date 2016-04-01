@@ -10,8 +10,8 @@
     text-align: center;
   }
 
-  thead {
-    background-color: #ababab;
+  thead, tr:last-child {
+    background-color: #cccccc;
   }
 }
 
@@ -21,5 +21,22 @@
 
   input {
     max-width: 200px;
+  }
+
+  .vehicle-licence-form, .number-plate-form {
+    input {
+      display: inline-block;
+      width: 100px;
+    }
+
+    label {
+      display: block;
+    }
+  }
+
+  .image-block {
+    padding: 10px;
+    background-color: #b0e0e6;
+    margin: 10px;
   }
 }
