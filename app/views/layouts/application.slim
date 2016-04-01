@@ -7,4 +7,15 @@ html
     = javascript_include_tag 'application'
     = csrf_meta_tags
   body
+    header.page-header.navbar-default
+      h1.text-center
+        = link_to 'Buslist', root_path
+
     = yield
+
+    footer.page-footer.text-center
+      p
+        small
+          = '&copy;'.html_safe
+          |
+          = link_to "Project at GitHub", 'https://github.com/rgarifullin/buslist'
