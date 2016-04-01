@@ -34,6 +34,14 @@ class BusesController < ApplicationController
     end
   end
 
+  def destroy
+    bus = Bus.find(params[:id])
+
+    bus.destroy
+    redirect_to(:back)
+  end
+
+
   private
 
   def bus_params
