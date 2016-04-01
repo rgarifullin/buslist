@@ -6,6 +6,7 @@ table.table.table-bordered.table-hover.bustable
       th = t('number_plate.number_plate')
       th = t('vehicle_licence.vehicle_licence')
       th = t('vehicle_licence.release_date')
+      th = t('bus.photo')
       th
         = link_to t('common.new'), new_bus_path, class: 'btn btn-primary'
   tbody
@@ -16,6 +17,8 @@ table.table.table-bordered.table-hover.bustable
         td = bus.number_plate.display
         td = bus.vehicle_licence.display
         td = bus.vehicle_licence.release_date.strftime("%d.%m.%Y")
+        td
+          = bus.photos.empty? ? '' : "&#10004;".html_safe
         td
           = link_to t('common.edit'), edit_bus_path(bus), class: 'btn btn-success'
           = link_to t('common.delete'), bus_path(bus), method: 'delete', class: 'btn btn-danger'

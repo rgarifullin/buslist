@@ -23,8 +23,9 @@
 
   .form-group
     - bus.photos.each do |photo|
-      = image_tag photo.thumb
+      = image_tag photo.thumb.url
     = f.file_field :photos, multiple: true
+    = f.hidden_field :photos_cache
 
   = f.submit t('common.save'), class: 'btn btn-success'
   = link_to t('common.back'), buses_path, class: 'btn btn-default'
