@@ -1,6 +1,7 @@
 class BusesController < ApplicationController
   def index
-    @buses = Bus.all
+    @buses = Bus.all.page params[:page]
+    @total = Bus.count
   end
 
   def new

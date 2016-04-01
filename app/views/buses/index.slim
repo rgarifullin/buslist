@@ -26,4 +26,6 @@ table.table.table-bordered.table-hover.bustable
       td
         = t('common.total')
         |:
-        = @buses.count
+        = @total
+
+= paginate @buses

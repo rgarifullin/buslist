@@ -8,4 +8,6 @@ class Bus < ActiveRecord::Base
   accepts_nested_attributes_for :vehicle_licence
 
   mount_uploaders :photos, PhotoUploader
+
+  paginates_per 10
 end
