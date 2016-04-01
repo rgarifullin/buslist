@@ -1,31 +1,37 @@
 = form_for bus, html: { class: 'bus-form' } do |f|
-  .form-group
-    = f.label t('bus.name')
-    = f.text_field :name, class: 'form-control', placeholder: 'Higer'
-
-  .form-group
-    = f.label t('number_plate.number_plate')
-    = f.fields_for :number_plate do |number|
-      = number.text_field :series, class: 'form-control', placeholder: 'ААА'
-      = number.text_field :number, class: 'form-control', placeholder: '123'
-      = number.text_field :region, class: 'form-control', placeholder: '116'
-
-  .form-group
-    = f.label t('vehicle_licence.vehicle_licence')
-    = f.fields_for :vehicle_licence do |licence|
-      = licence.text_field :digit_code, class: 'form-control', placeholder: '77'
-      = licence.text_field :letter_code, class: 'form-control', placeholder: 'ТО'
-      = licence.text_field :number, class: 'form-control', placeholder: '123456'
-
+  .row
+    .col-md-6
       .form-group
-        = label_tag t('vehicle_licence.release_date')
-        = licence.text_field :release_date, class: 'form-control', placeholder: '2016-01-01'
+        = f.label t('bus.name')
+        = f.text_field :name, class: 'form-control', placeholder: 'Higer'
 
-  .form-group
+      .form-group.number-plate-form
+        = f.label t('number_plate.number_plate')
+        = f.fields_for :number_plate do |number|
+          = number.text_field :series, class: 'form-control', placeholder: 'ААА'
+          = number.text_field :number, class: 'form-control', placeholder: '123'
+          = number.text_field :region, class: 'form-control', placeholder: '116'
+
+    .col-md-6
+      .form-group.vehicle-licence-form
+        = f.label t('vehicle_licence.vehicle_licence')
+        = f.fields_for :vehicle_licence do |licence|
+          = licence.text_field :digit_code, class: 'form-control', placeholder: '77'
+          = licence.text_field :letter_code, class: 'form-control', placeholder: 'ТО'
+          = licence.text_field :number, class: 'form-control', placeholder: '123456'
+
+          .form-group
+            = label_tag t('vehicle_licence.release_date')
+            = licence.date_select :release_date
+
+  .row
     - bus.photos.each do |photo|
-      = image_tag photo.thumb.url
-    = f.file_field :photos, multiple: true
-    = f.hidden_field :photos_cache
+      .image-block
+        = image_tag photo.thumb.url
+
+    .form-group
+      = f.file_field :photos, multiple: true
+      = f.hidden_field :photos_cache
 
   = f.submit t('common.save'), class: 'btn btn-success'
   = link_to t('common.back'), buses_path, class: 'btn btn-default'
