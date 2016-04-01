@@ -23,6 +23,16 @@ class BusesController < ApplicationController
     @bus = Bus.find(params[:id])
   end
 
+  def update
+    bus = Bus.find(params[:id])
+
+    if bus.update_attributes(bus_params)
+      redirect_to buses_path
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def bus_params
