@@ -8,6 +8,7 @@ class BusesController < ApplicationController
     @bus = Bus.new
     @bus.build_number_plate
     @bus.build_vehicle_licence
+    @bus.photos.new
   end
 
   def create
@@ -22,6 +23,7 @@ class BusesController < ApplicationController
 
   def edit
     @bus = Bus.find(params[:id])
+    @bus.photos.new
   end
 
   def update
@@ -45,7 +47,9 @@ class BusesController < ApplicationController
   private
 
   def bus_params
-    params.require(:bus).permit(:name, { photos: [] }, number_plate_attributes: [:series, :number, :region],
+    params.require(:bus).permit(:name,
+                                photos_attributes: [:image, :_destroy, :id],
+                                number_plate_attributes: [:series, :number, :region],
                                 vehicle_licence_attributes: [:digit_code, :letter_code, :number, :release_date])
   end
 end
