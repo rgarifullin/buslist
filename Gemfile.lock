@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
-  revision: 34cd8a379d1874417572f97bab8aac568bf71e41
+  revision: 0198be600e6a27fead346d2d0e8a382620b772b5
   specs:
     carrierwave (0.10.0)
       activemodel (>= 4.0.0)
@@ -100,6 +100,7 @@ GEM
     momentjs-rails (2.11.0)
       railties (>= 3.1)
     multi_json (1.11.2)
+    nested_form (0.3.2)
     nokogiri (1.6.7.2)
     pg (0.18.4)
     rack (1.6.4)
@@ -159,6 +160,9 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    simple_form (3.2.1)
+      actionpack (> 4, < 5.1)
+      activemodel (> 4, < 5.1)
     slim (3.0.6)
       temple (~> 0.7.3)
       tilt (>= 1.3.3, < 2.1)
@@ -205,15 +209,17 @@ DEPENDENCIES
   kaminari
   mini_magick
   momentjs-rails (>= 2.9.0)
+  nested_form
   pg (~> 0.15)
   rails (= 4.2.5)
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  simple_form
   slim-rails
   spring
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
