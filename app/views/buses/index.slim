@@ -20,8 +20,9 @@ table.table.table-bordered.table-hover.bustable
         td
           = bus.photos.empty? ? '' : "&#10004;".html_safe
         td
-          = link_to t('common.edit'), edit_bus_path(bus), class: 'btn btn-success'
-          = link_to t('common.delete'), bus_path(bus), method: 'delete', class: 'btn btn-danger'
+          .actions
+            = link_to t('common.edit'), edit_bus_path(bus), class: 'btn btn-sm btn-success'
+            = link_to t('common.delete'), bus_path(bus), method: 'delete', class: 'btn btn-sm btn-danger'
     tr
       td
         = t('common.total')

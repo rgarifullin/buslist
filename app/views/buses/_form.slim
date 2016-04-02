@@ -42,10 +42,12 @@
       - if p.object.new_record?
         = p.file_field :image
       br
-        span.label.label-xs.label-default
-          = p.object.id
-        = p.link_to_remove t('common.delete'), class: 'btn btn-xs btn-danger'
-        = f.link_to_add t('common.add'), :photos, class: 'btn btn-xs btn-primary'
+      span.label.label-xs.label-default
+        = p.object.id
+      = p.link_to_remove t('common.delete'), class: 'btn btn-xs btn-danger'
+      - if p.object.new_record?
+        = f.link_to_add t('common.new'), :photos, class: 'btn btn-xs btn-primary'
 
-  = f.submit t('common.save'), class: 'btn btn-success'
-  = link_to t('common.back'), buses_path, class: 'btn btn-default'
+  .actions
+    = f.submit t('common.save'), class: 'btn btn-success'
+    = link_to t('common.back'), buses_path, class: 'btn btn-default'
