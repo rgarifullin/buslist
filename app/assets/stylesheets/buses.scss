@@ -38,5 +38,14 @@
     padding: 10px;
     background-color: #b0e0e6;
     margin: 10px;
+
+    .image-item {
+      display: inline-block;
+      text-align: center;
+
+      .image {
+        padding: 5px;
+      }
+    }
   }
 }
