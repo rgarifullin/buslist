@@ -1,4 +1,6 @@
-= form_for bus, html: { class: 'bus-form' } do |f|
+= javascript_include_tag :defaults, 'nested_form'
+
+= simple_nested_form_for bus, html: { class: 'bus-form', multipart: true } do |f|
   .row
     .col-md-6
       .form-group
@@ -25,13 +27,25 @@
             = licence.date_select :release_date
 
   .row
-    - bus.photos.each do |photo|
+    - unless bus.photos.first.new_record?
       .image-block
-        = image_tag photo.thumb.url
+        - bus.photos.each do |p|
+          - unless p.new_record?
+            .image-item
+              .image
+                = link_to(image_tag(p.image.url(:thumb)), p.image.url)
+              span.label.label-xs.label-default
+                = p.id
 
-    .form-group
-      = f.file_field :photos, multiple: true
-      = f.hidden_field :photos_cache
+
+    = f.simple_fields_for :photos do |p|
+      - if p.object.new_record?
+        = p.file_field :image
+      br
+        span.label.label-xs.label-default
+          = p.object.id
+        = p.link_to_remove t('common.delete'), class: 'btn btn-xs btn-danger'
+        = f.link_to_add t('common.add'), :photos, class: 'btn btn-xs btn-primary'
 
   = f.submit t('common.save'), class: 'btn btn-success'
   = link_to t('common.back'), buses_path, class: 'btn btn-default'
