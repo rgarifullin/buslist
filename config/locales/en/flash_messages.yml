@@ -1,0 +1,8 @@
+en:
+  flash_messages:
+    create:
+      success: 'Record was successfully created.'
+    update:
+      success: 'Record was successfully updated.'
+    destroy:
+      success: 'Record was successfully deleted.'

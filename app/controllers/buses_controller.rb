@@ -14,9 +14,11 @@ class BusesController < ApplicationController
   def create
     bus = Bus.new(bus_params)
     if bus.save
+      flash[:success] = t('flash_messages.create.success')
       redirect_to buses_path
     else
       @bus = bus
+      @bus.photos.new
       render :new
     end
   end
@@ -30,19 +32,24 @@ class BusesController < ApplicationController
     bus = Bus.find(params[:id])
 
     if bus.update_attributes(bus_params)
+      flash[:success] = t('flash_messages.update.success')
       redirect_to buses_path
     else
-      render 'edit'
+      @bus = bus
+      render :edit
     end
   end
 
   def destroy
     bus = Bus.find(params[:id])
 
-    bus.destroy
-    redirect_to(:back)
+    if bus.destroy
+      flash[:success] = t('flash_messages.destroy.success')
+      redirect_to(:back)
+    else
+      render :index
+    end
   end
-
 
   private
 

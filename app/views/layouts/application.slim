@@ -11,6 +11,18 @@ html
       h1.text-center
         = link_to 'Buslist', root_path
 
+    - unless flash.blank?
+      - flash.each do |name, msg|
+        - classname_end = ''
+        - case name
+        - when 'success' then classname_end += 'success'
+        - when 'error' then classname_end += 'danger'
+        - else classname_end += 'info'
+        - classname = 'text-center alert alert-' + classname_end
+        = content_tag :div, msg, class: classname, role: 'alert'
+
+    = render partial: 'buses_error_messages'
+
     = yield
 
     footer.page-footer.text-center

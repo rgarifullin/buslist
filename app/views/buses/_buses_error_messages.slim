@@ -1,0 +1,6 @@
+- if @bus && @bus.errors.any?
+  .alert.alert-danger
+    = pluralize(@bus.errors.count, 'error')
+    ul
+      - @bus.errors.full_messages.each do |msg|
+        li = msg
