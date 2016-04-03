@@ -49,6 +49,8 @@ group :test do
   gem 'simplecov', require: false
 end
 
+gem 'rails_12factor', group: :production
+
 gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'momentjs-rails', '>= 2.9.0'
@@ -58,3 +60,5 @@ gem 'mini_magick'
 gem 'kaminari'
 gem 'simple_form'
 gem 'nested_form'
+gem 'mini_portile2'
+gem 'puma'
